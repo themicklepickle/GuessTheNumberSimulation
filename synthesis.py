@@ -1,4 +1,5 @@
 import csv
+
 NUM_LEVELS = 4
 
 data = csv.reader(open("data.csv", "r"))
@@ -10,7 +11,7 @@ guesses = [col[2] for col in data if col[2] != "guesses"]
 
 # number of times each level was chosen
 for i in range(NUM_LEVELS):
-	print(f"level {i + 1}: {levels.count(f'{i + 1}')}")
+    print(f"level {i + 1}: {levels.count(f'{i + 1}')}")
 print()
 
 # number of times each player won
@@ -22,8 +23,8 @@ print(f"tie: {winners.count('tie')}\n")
 levels_guesses = zip(levels, guesses)
 averages = [0] * NUM_LEVELS
 for tup in levels_guesses:
-	averages[int(tup[0]) - 1] += int(tup[1])
+    averages[int(tup[0]) - 1] += int(tup[1])
 for i in range(len(averages)):
-	averages[i] /= levels.count(str(i+1))
+    averages[i] /= levels.count(str(i + 1))
 
 print(averages)
